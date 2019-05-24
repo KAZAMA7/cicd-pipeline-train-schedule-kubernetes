@@ -43,9 +43,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                input 'Deploy to Production?'
-                milestone(1)
-                //implement Kubernetes deployment here
+                kubernetesDeploy configs: 'train-schedule-kube.yml', kubeconfigId: 'kubemaster', enableConfigSubstitution: 'true'
             }
         }
     }
