@@ -43,7 +43,11 @@ pipeline {
                 branch 'master'
             }
             steps {
-                kubernetesDeploy configs: 'train-schedule-kube.yml', kubeconfigId: 'kubemaster', enableConfigSubstitution: 'true'
+                kubernetesDeploy(
+                configs: 'train-schedule-kube.yml', 
+                kubeconfigId: 'kubemaster',
+                enableConfigSubstitution: 'true'
+                )
             }
         }
     }
